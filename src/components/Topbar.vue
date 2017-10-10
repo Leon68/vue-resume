@@ -3,17 +3,23 @@
   <div id='topbar'>
     <div class="logo">Resumer</div>
     <div class="actions">
-      <button>注册</button>
-      <button>登录</button>
+       <el-button type="primary">注册</el-button>
+       <el-button>登录</el-button>
     </div>
 
   </div>
-</template> 
+</template>
 <style lang='scss'>
   #topbar {
     display: flex;
     justify-content: space-between;
-    padding: 20px;
+    align-items: center;
+    padding: 16px;
+    font-size: 20px;
+    height: 52px;
+    box-shadow: 0 2px 4px 4px #888;
+    background-color: #fff;
+    border-radius: 4px;
   }
 </style>
 

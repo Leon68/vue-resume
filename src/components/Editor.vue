@@ -169,10 +169,9 @@
     }
     .content {
       flex: 1;
-      overflow:hidden;
+      overflow: auto;
       ul {
         li {
-          overflow: auto;
           h2 {
             margin-bottom: 32px;
             text-align: center;

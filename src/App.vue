@@ -39,17 +39,17 @@
     display: flex;
     flex-direction: column;
     overflow: hidden;
-  }
-
-
-  main {
-    display: flex;
-    flex-grow: 1;
-    overflow:hidden;
-    .editor {
-    }
-    .preview {
+    main {
+      display: flex;
       flex-grow: 1;
+      overflow:hidden;
+      .editor {
+      }
+      .preview {
+        flex-grow: 1;
+      }
     }
   }
+
+
 </style>

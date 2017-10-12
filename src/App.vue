@@ -41,9 +41,11 @@
     overflow: hidden;
   }
 
+
   main {
     display: flex;
     flex-grow: 1;
+    overflow:hidden;
     .editor {
     }
     .preview {

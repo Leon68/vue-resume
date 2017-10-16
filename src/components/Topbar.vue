@@ -14,9 +14,9 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
+    flex-shrink: 0;
     padding: 16px;
     font-size: 20px;
-    height: 52px;
     box-shadow: 0 2px 4px 4px #888;
     background-color: #fff;
     border-radius: 4px;

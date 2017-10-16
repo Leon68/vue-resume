@@ -15,104 +15,36 @@
     <div class="content">
       <ul>
         <li v-bind:class='{active: currentTab === 0}'>
-          <ProfileEditor :profile="profile" />
+          <ProfileEditor :items="profile" :title="'个人信息'" :labels="{name: '名字',age: '年龄',gender: '学历',birthday: '生日'}"/>
         </li>
-
         <li v-bind:class='{active: currentTab === 1}'>
-          <h2>兴趣爱好</h2>
-          <el-form v-for="(h,index) in hobby">
-            <el-form-item label="爱好">
-              <el-input v-model="h.hobby"></el-input>
-            </el-form-item>
-            <i class="el-icon-circle-close" v-on:click="deleteHobby(index)"></i>
-            <hr>
-          </el-form>
-          <el-button v-on:click="addHobby" type="primary">添加</el-button>
+          <ArrayEditor :items="hobbys" :title="'爱好'" :labels="{hobby:'爱好'}"/>
         </li>
-
         <li v-bind:class='{active: currentTab === 2}'>
-          <WorkEditor :workExperiences="workExperiences" />
+          <ArrayEditor  :items="workExperiences" :title="'工作经历'" :labels="{company:'公司',content: '工作内容'}"/>
         </li>
-        <!--
         <li v-bind:class='{active: currentTab === 3}' >
-          <h2>教育背景</h2>
-          <el-form :label-position="labelPosition" label-width="80px" :model="studyExperinces">
-            <el-form-item label="姓名">
-              <el-input v-model="formLabelAlign.name"></el-input>
-            </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="formLabelAlign.age"></el-input>
-            </el-form-item>
-            <el-form-item label="性别">
-              <el-input v-model="formLabelAlign.gender"></el-input>
-            </el-form-item>
-            <el-form-item label="出生年月">
-              <el-input v-model="formLabelAlign.birthday"></el-input>
-            </el-form-item>
-          </el-form>
+          <ArrayEditor  :items="studyExperiences" :title="'学习经历'" :labels="{school:'学校',duration: '时间段',degree:'学位'}"/>
         </li>
         <li v-bind:class='{active: currentTab === 4}' >
-          <h2>项目情况</h2>
-          <el-form :label-position="labelPosition" label-width="80px" :model="project">
-            <el-form-item label="姓名">
-              <el-input v-model="formLabelAlign.name"></el-input>
-            </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="formLabelAlign.age"></el-input>
-            </el-form-item>
-            <el-form-item label="性别">
-              <el-input v-model="formLabelAlign.gender"></el-input>
-            </el-form-item>
-            <el-form-item label="出生年月">
-              <el-input v-model="formLabelAlign.birthday"></el-input>
-            </el-form-item>
-          </el-form>
+          <ArrayEditor  :items="projects" :title="'项目情况'" :labels="{name:'项目名称',technology: '技术栈',content:'项目内容'}"/>
         </li>
         <li v-bind:class='{active: currentTab === 5}' >
-          <h2>获奖信息</h2>
-          <el-form :label-position="labelPosition" label-width="80px" :model="awards">
-            <el-form-item label="姓名">
-              <el-input v-model="formLabelAlign.name"></el-input>
-            </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="formLabelAlign.age"></el-input>
-            </el-form-item>
-            <el-form-item label="性别">
-              <el-input v-model="formLabelAlign.gender"></el-input>
-            </el-form-item>
-            <el-form-item label="出生年月">
-              <el-input v-model="formLabelAlign.birthday"></el-input>
-            </el-form-item>
-          </el-form>
+          <ArrayEditor  :items="awards" :title="'获奖情况'" :labels="{name:'奖励详情'}"/>
         </li>
         <li v-bind:class='{active: currentTab === 6}' >
-          <h2>联系方式</h2>
-          <el-form :label-position="labelPosition" label-width="80px" :model="contact">
-            <el-form-item label="姓名">
-              <el-input v-model="contact.name"></el-input>
-            </el-form-item>
-            <el-form-item label="年龄">
-              <el-input v-model="contact.age"></el-input>
-            </el-form-item>
-            <el-form-item label="性别">
-              <el-input v-model="formLabelAlign.gender"></el-input>
-            </el-form-item>
-            <el-form-item label="出生年月">
-              <el-input v-model="formLabelAlign.birthday"></el-input>
-            </el-form-item>
-          </el-form>
+          <ProfileEditor :items="contact"  :title="'联系方式'":labels="{mobile: '手机',qq: 'QQ',email: '邮箱',github: 'github'}"/>
         </li>
-        -->
       </ul>
     </div>
   </div>
 </template>
 <script>
   import ProfileEditor from './ProfileEditor.vue'
-  import WorkEditor from './WorkEditor.vue'
+  import ArrayEditor from './ArrayEditor.vue'
   export default {
     components: {
-      ProfileEditor,WorkEditor
+      ProfileEditor,ArrayEditor
     },
     data() {
       return {
@@ -124,23 +56,29 @@
           gender: '',
           birthday: ''
         },
-        hobby: [
+        hobbys: [
           {hobby: ''}
         ],
-
+        awards: [
+          {name: ''}
+        ],
         workExperiences: [
           {company: '', content: ''}
-        ]
+        ],
+        studyExperiences: [
+          {school:'', duration:'', degree:''}
+        ],
+        projects: [
+          {name:'', technology:'', content:''}
+        ],
+        contact: {
+          mobile: '',
+          qq: '',
+          email: '',
+          github: ''
+        },
       }
     },
-    methods: {
-      addHobby() {
-        this.hobby.push({hobby: ''})
-      },
-      deleteHobby(index) {
-        this.hobby.splice(index, 1)
-      },
-    }
   }
 </script>
 <style lang='scss'>

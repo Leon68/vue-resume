@@ -2,8 +2,8 @@
   <div id="app">
     <Topbar class='topbar'/>
     <main>
-      <Editor class='editor'/>
-      <Preview class='preview'/>
+      <Editor :resumeData="resumeData" class='editor'/>
+      <Preview :resumeData="resumeData" class='preview'/>
     </main>
   </div>
 </template>
@@ -17,6 +17,38 @@
     name: 'app',
     components: {
       Topbar, Editor, Preview
+    },
+    data() {
+      return {
+        resumeData: {
+          profile: {
+            name: '',
+            age: '',
+            gender: '',
+            birthday: ''
+          },
+          awards: [
+            {name: ''}
+          ],
+          workExperiences: [
+            {company: '', content: ''}
+          ],
+          studyExperiences: [
+            {school: '', duration: '', degree: ''}
+          ],
+          projects: [
+            {name: '', technology: '', content: ''}
+          ],
+          contacts: {
+            mobile: '',
+            qq: '',
+            email: '',
+            github: ''
+          },
+        }
+      }
+    },
+    createrd(){
     }
   }
 </script>
@@ -38,11 +70,11 @@
     background-color: #ccc;
     display: flex;
     flex-direction: column;
-    overflow: hidden;
+    /*overflow: hidden;*/
     main {
       display: flex;
       flex-grow: 1;
-      overflow:hidden;
+      overflow: hidden;
       .editor {
       }
       .preview {

@@ -26,16 +26,16 @@
     methods: {
       addItem() {
         const empty={}
-        this.initialKeys.forEach(i =>{
+        this.keys.forEach(i =>{
          empty[i]=''
         })
         this.items.push(empty)
       },
       deleteItem(index) {
+        if (this.items.length > 1){
           this.items.splice(index, 1)
-        console.log(this.keys)
+        }
       }
-
     }
   }
 

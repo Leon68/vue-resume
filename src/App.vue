@@ -1,10 +1,11 @@
 <template>
-  <div id="app">
-    <Topbar class='topbar'/>
+  <div id="app" :class="{previewApp: pre}" >
+    <Topbar class='topbar' v-on:pre="preview"/>
     <main>
-      <Editor :resumeData="resumeData" class='editor'/>
-      <Preview :resumeData="resumeData" class='preview'/>
+      <Editor :resumeData="resumeData" />
+      <Preview :resumeData="resumeData" />
     </main>
+    <el-button type="primary" class="exit-preview" @click="exitPreview">退出预览</el-button>
   </div>
 </template>
 
@@ -18,8 +19,18 @@
     components: {
       Topbar, Editor, Preview
     },
+    methods: {
+      preview(){
+        this.pre = true
+      },
+      exitPreview(){
+        this.pre = false
+      }
+
+    },
     data() {
       return {
+        pre: false,
         resumeData: {
           profile: {
             name: '',
@@ -47,8 +58,6 @@
           },
         }
       }
-    },
-    createrd(){
     }
   }
 </script>
@@ -70,18 +79,31 @@
     background-color: #ccc;
     display: flex;
     flex-direction: column;
-    /*overflow: hidden;*/
     main {
       display: flex;
       flex-grow: 1;
       overflow: hidden;
-      .editor {
-      }
-      .preview {
-        flex-grow: 1;
-      }
     }
   }
+  .exit-preview {
+    display: none;
+    position: fixed;
+    right: 16px;
+    bottom: 16px;
+  }
 
+  .previewApp>main>#editor {
+    display: none;
+  }
+  .previewApp #preview {
+    max-width: 1000px;
+    margin: 16px auto;
+  }
+  .previewApp #topbar {
+    display: none;
+  }
+  .previewApp .exit-preview {
+    display: inline-block;
+  }
 
 </style>

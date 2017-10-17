@@ -80,6 +80,7 @@
 <style lang='scss'>
   #preview {
     overflow: auto;
+    flex-grow: 1;
     margin: 16px 16px 16px 8px;
     paddding: 32px;
     border-radius: 4px;

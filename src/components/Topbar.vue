@@ -4,7 +4,7 @@
     <div class="logo">Resumer</div>
     <div class="actions">
        <el-button type="primary">注册</el-button>
-       <el-button>登录</el-button>
+       <el-button >登录</el-button>
       <el-button type="primary" v-on:click="preview">预览</el-button>
     </div>
 
@@ -12,10 +12,11 @@
 </template>
 <script>
   export default {
+    props:['pre'],
     methods:{
       preview(){
-        this.$emit('preview')
-      }
+        this.$emit('pre')
+      },
     }
   }
 

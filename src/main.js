@@ -6,8 +6,7 @@ import 'normalize.css'
 import './assets/reset.scss'
 Vue.config.productionTip = false
 
-
-import ElementUI from 'element-ui' 
+import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-default/index.css'
 Vue.use(ElementUI)
 /* eslint-disable no-new */

@@ -3,8 +3,7 @@
     <h2 >{{title}}</h2>
     <el-form class="container" v-for="(item,index) in items" :key="index">
       <el-form-item v-for="key in keys" :label="labels[key] || key" :key="key">
-        <el-input v-model="item[key]"></el-input>
-        {{item}}
+        <el-input :value="value" @input="changeResumeField(item,key,@event.target.value)"></el-input>
       </el-form-item>
       <i class="el-icon-circle-close delete" v-on:click="deleteItem(index)"></i>
       <hr>
@@ -24,6 +23,13 @@
       }
     },
     methods: {
+      changeResumeField(field,subfield,value){
+        this.$store.commit('updateResume',{
+          field,
+          subfield,
+          value
+        })
+      },
       addItem() {
         const empty={}
         this.keys.forEach(i =>{

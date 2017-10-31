@@ -1,21 +1,21 @@
 <template>
   <div id='preview'>
-    <div>
+    <section>
       <h1>个人信息</h1>
       <h2>{{resumeData.profile.name || '请填写姓名'}}</h2>
       <p>{{resumeData.profile.age || '请填写年龄'}}</p>
       <p>{{resumeData.profile.gender || '请填写学历'}}</p>
       <p>{{resumeData.profile.birthday || '请填写出生年月'}}</p>
 
-    </div>
+    </section>
     <hr>
-    <div>
+    <section>
       <h1>联系方式</h1>
       <p>{{resumeData.contacts.mobile || '请填写手机号码'}}</p>
       <p>{{resumeData.contacts.qq || '请填写QQ号码'}}</p>
       <p>{{resumeData.contacts.email || '请填写邮箱'}}</p>
       <p>{{resumeData.contacts.github || '请填写github地址'}}</p>
-    </div>
+    </section>
     <section v-if="filter(resumeData.workExperiences).length > 0">
       <h1>工作经历</h1>
       <ul>
@@ -57,7 +57,11 @@
 </template>
 <script>
   export default {
-    props:['resumeData'],
+    computed: {
+      resumeData(){
+        return this.$store.state.resumeData
+      }
+    },
     methods: {
       filter(array){
        return array.filter(obj => !this.isEmpty(obj))
@@ -87,6 +91,12 @@
     box-shadow: 4px 4px 8px 4px #999;
     color: #000;
     background-color: #fff;
+    section {
+      padding: 32px;
+      p {
+        padding: 8px 2px;
+      }
+    }
   }
 </style>
 

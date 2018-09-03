@@ -1,23 +1,23 @@
 <template>
   <div id="app" :class="{previewApp: pre}" >
     <Topbar class='topbar' v-on:pre="preview"/>
-    <!--<main>-->
-      <!--<Editor/>-->
-      <!--<Preview/>-->
-    <!--</main>-->
+    <main>
+      <Editor/>
+      <Preview/>
+    </main>
     <el-button type="primary" class="exit":class="{exitPre: pre}" @click="exitPreview">退出预览</el-button>
   </div>
 </template>
 
 <script>
   import Topbar from './components/Topbar'
-//  import Editor from './components/Editor'
-//  import Preview from './components/Preview'
-//  import store from './store/index'
+  import Editor from './components/Editor'
+  import Preview from './components/Preview'
+  import store from './store/index'
 
   export default {
     name: 'app',
-//    store,
+    store,
     components: {
       Topbar, Editor, Preview
     },

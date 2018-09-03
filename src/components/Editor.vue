@@ -11,29 +11,28 @@
         </li>
       </ul>
     </nav>
-{{resumeData}}
-    <!--<div class="content">-->
-      <!--<ul>-->
-        <!--<li v-bind:class='{active: currentTab === 0}'>-->
-          <!--<ObjectEditor :items="resumeData.profile" :title="'个人信息'" :labels="{name: '名字',age: '年龄',gender: '学历',birthday: '生日'}"/>-->
-        <!--</li>-->
-        <!--<li v-bind:class='{active: currentTab === 1}'>-->
-          <!--<ArrayEditor  :items="resumeData.workExperiences" :title="'工作经历'" :labels="{company:'公司',content: '工作内容'}"/>-->
-        <!--</li>-->
-        <!--<li v-bind:class='{active: currentTab === 2}' >-->
-          <!--<ArrayEditor  :items="resumeData.studyExperiences" :title="'教育背景'" :labels="{school:'学校',duration: '时间',degree:'学位'}"/>-->
-        <!--</li>-->
-        <!--<li v-bind:class='{active: currentTab === 3}' >-->
-          <!--<ArrayEditor  :items="resumeData.projects" :title="'项目情况'" :labels="{name:'项目名称',technology: '技术栈',content:'项目内容'}"/>-->
-        <!--</li>-->
-        <!--<li v-bind:class='{active: currentTab === 4}' >-->
-          <!--<ArrayEditor  :items="resumeData.awards" :title="'获奖情况'" :labels="{name:'奖励详情'}"/>-->
-        <!--</li>-->
-        <!--<li v-bind:class='{active: currentTab === 5}' >-->
-          <!--<ObjectEditor :items="resumeData.contacts"  :title="'联系方式'":labels="{mobile: '手机',qq: 'QQ',email: '邮箱',github: 'github'}"/>-->
-        <!--</li>-->
-      <!--</ul>-->
-    <!--</div>-->
+    <div class="content">
+      <ul>
+        <li v-bind:class='{active: currentTab === 0}'>
+          <ObjectEditor :items="resumeData.profile" :title="'个人信息'" :labels="{name: '名字',age: '年龄',gender: '学历',birthday: '生日'}"/>
+        </li>
+        <li v-bind:class='{active: currentTab === 1}'>
+          <ArrayEditor  :items="resumeData.workExperiences" :title="'工作经历'" :labels="{company:'公司',content: '工作内容'}"/>
+        </li>
+        <li v-bind:class='{active: currentTab === 2}' >
+          <ArrayEditor  :items="resumeData.studyExperiences" :title="'教育背景'" :labels="{school:'学校',duration: '时间',degree:'学位'}"/>
+        </li>
+        <li v-bind:class='{active: currentTab === 3}' >
+          <ArrayEditor  :items="resumeData.projects" :title="'项目情况'" :labels="{name:'项目名称',technology: '技术栈',content:'项目内容'}"/>
+        </li>
+        <li v-bind:class='{active: currentTab === 4}' >
+          <ArrayEditor  :items="resumeData.awards" :title="'获奖情况'" :labels="{name:'奖励详情'}"/>
+        </li>
+        <li v-bind:class='{active: currentTab === 5}' >
+          <ObjectEditor :items="resumeData.contacts"  :title="'联系方式'":labels="{mobile: '手机',qq: 'QQ',email: '邮箱',github: 'github'}"/>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 <script>
